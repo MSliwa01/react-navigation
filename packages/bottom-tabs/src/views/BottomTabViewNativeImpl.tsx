@@ -795,9 +795,8 @@ function getPlatformIcon(icon: Icon, direction: LocaleDirection): PlatformIcon {
       // A `{ uri: 'name' }` source maps to an Android drawable by name.
       const drawableName =
         typeof icon.source === 'object' &&
-        icon.source != null &&
-        !Array.isArray(icon.source) &&
-        typeof icon.source.uri === 'string'
+        'uri' in icon.source &&
+        icon.source.uri?.includes(':') === false
           ? icon.source.uri
           : undefined;
 

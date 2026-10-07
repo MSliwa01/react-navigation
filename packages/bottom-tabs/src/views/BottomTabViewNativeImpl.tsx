@@ -480,6 +480,12 @@ export function BottomTabViewNative({
           tabBarMinimizeBehavior,
           tabBarTintColor: activeTintColor,
         }}
+        android={{
+          tabBarItemActiveIndicatorWidth:
+            currentOptions.tabBarActiveIndicatorWidth,
+          tabBarItemActiveIndicatorHeight:
+            currentOptions.tabBarActiveIndicatorHeight,
+        }}
       >
         {state.routes.map((route, index) => {
           const descriptor = descriptors[route.key];
@@ -659,10 +665,6 @@ export function BottomTabViewNative({
                   tabBarItemActiveIndicatorColor: activeIndicatorColor,
                   tabBarItemActiveIndicatorEnabled:
                     currentOptions?.tabBarActiveIndicatorEnabled,
-                  tabBarItemActiveIndicatorWidth:
-                    currentOptions?.tabBarActiveIndicatorWidth,
-                  tabBarItemActiveIndicatorHeight:
-                    currentOptions?.tabBarActiveIndicatorHeight,
                   tabBarItemTitleFontFamily: fontFamily,
                   tabBarItemTitleFontWeight: fontWeight,
                   tabBarItemTitleSmallLabelFontSize: fontSize,

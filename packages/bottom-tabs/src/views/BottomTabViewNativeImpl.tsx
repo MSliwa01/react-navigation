@@ -480,12 +480,6 @@ export function BottomTabViewNative({
           tabBarMinimizeBehavior,
           tabBarTintColor: activeTintColor,
         }}
-        android={{
-          tabBarItemActiveIndicatorWidth:
-            currentOptions.tabBarActiveIndicatorWidth,
-          tabBarItemActiveIndicatorHeight:
-            currentOptions.tabBarActiveIndicatorHeight,
-        }}
       >
         {state.routes.map((route, index) => {
           const descriptor = descriptors[route.key];
@@ -511,6 +505,8 @@ export function BottomTabViewNative({
             tabBarBadgeStyle,
             tabBarIcon,
             tabBarIconSize,
+            tabBarActiveIndicatorWidth,
+            tabBarActiveIndicatorHeight,
             tabBarBadge,
             tabBarSystemItem,
             tabBarBlurEffect = dark ? 'systemMaterialDark' : 'systemMaterial',
@@ -653,7 +649,6 @@ export function BottomTabViewNative({
               android={{
                 icon: icon?.android ?? icon?.shared,
                 selectedIcon: selectedIcon?.android ?? selectedIcon?.shared,
-                iconSize: tabBarIconSize,
                 standardAppearance: {
                   tabBarBackgroundColor:
                     tabBarBackgroundColor ?? backgroundColor,
@@ -662,9 +657,12 @@ export function BottomTabViewNative({
                     currentOptions?.tabBarLabelVisibilityMode,
                   normal: normalTabItemAppearance,
                   selected: selectedTabItemAppearance,
+                  tabBarItemIconSize: tabBarIconSize,
                   tabBarItemActiveIndicatorColor: activeIndicatorColor,
                   tabBarItemActiveIndicatorEnabled:
                     currentOptions?.tabBarActiveIndicatorEnabled,
+                  tabBarItemActiveIndicatorWidth: tabBarActiveIndicatorWidth,
+                  tabBarItemActiveIndicatorHeight: tabBarActiveIndicatorHeight,
                   tabBarItemTitleFontFamily: fontFamily,
                   tabBarItemTitleFontWeight: fontWeight,
                   tabBarItemTitleSmallLabelFontSize: fontSize,

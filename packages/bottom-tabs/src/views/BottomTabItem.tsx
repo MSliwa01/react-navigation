@@ -136,7 +136,7 @@ type Props = {
    */
   labelStyle?: StyleProp<TextStyle> | undefined;
   /**
-   * Size (in dp) of the icon, overriding the default for the variant.
+   * Size of the icon.
    */
   iconSize?: number | undefined;
   /**

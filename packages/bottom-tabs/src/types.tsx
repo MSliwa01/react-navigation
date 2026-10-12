@@ -459,19 +459,18 @@ export type BottomTabNavigationOptions = {
   tabBarLabelVisibilityMode?: TabBarItemLabelVisibilityMode | undefined;
 
   /**
-   * Size (in dp) of this tab's icon. Can be set globally via `screenOptions`
-   * and/or overridden per screen. Unset tabs use the default size.
+   * Size of the tab's icon.
    *
-   * On the `custom` implementation it sizes the icon on all platforms. On the
-   * `native` implementation the largest value across tabs sets the bar's icon
-   * box and smaller icons are inset to their own size (Android only).
+   * With `native` implementation, the tab bar reserves the same space for
+   * every tab based on the largest icon, and smaller icons are centered in it.
+   *
+   * Supported on all platforms with `custom` implementation.
+   * Only supported on Android with `native` implementation.
    */
   tabBarIconSize?: number | undefined;
 
   /**
-   * Width (in dp) of this tab's active indicator. Can be set globally via
-   * `screenOptions` and/or overridden per screen. If unset, it is this tab's
-   * icon size plus the default Material padding.
+   * Width of the tab's active indicator.
    *
    * Only supported with `native` implementation.
    *
@@ -480,9 +479,7 @@ export type BottomTabNavigationOptions = {
   tabBarActiveIndicatorWidth?: number | undefined;
 
   /**
-   * Height (in dp) of this tab's active indicator. Can be set globally via
-   * `screenOptions` and/or overridden per screen. If unset, it is this tab's
-   * icon size plus the default Material padding.
+   * Height of the tab's active indicator.
    *
    * Only supported with `native` implementation.
    *

@@ -15,9 +15,6 @@ export type TabBarIconProps = {
   route: Route<string>;
   variant: 'uikit' | 'material';
   size: 'compact' | 'regular';
-  /**
-   * Explicit icon size (in dp) overriding the default for the variant/size.
-   */
   iconSize?: number | undefined;
   badge?: string | number | undefined;
   badgeStyle?: StyleProp<TextStyle> | undefined;
@@ -81,7 +78,10 @@ export function TabBarIcon({
           : size === 'compact'
             ? styles.wrapperUikitCompact
             : styles.wrapperUikit,
-        iconSizeOverride != null && { width: iconSizeOverride },
+        iconSizeOverride != null && {
+          width: iconSizeOverride,
+          height: iconSizeOverride,
+        },
         style,
       ]}
     >

@@ -383,6 +383,24 @@ type BottomTabNativeOptions = {
   tabBarActiveIndicatorEnabled?: boolean | undefined;
 
   /**
+   * Width of the tab's active indicator.
+   *
+   * Only supported with `native` implementation.
+   *
+   * @platform android
+   */
+  tabBarActiveIndicatorWidth?: number | undefined;
+
+  /**
+   * Height of the tab's active indicator.
+   *
+   * Only supported with `native` implementation.
+   *
+   * @platform android
+   */
+  tabBarActiveIndicatorHeight?: number | undefined;
+
+  /**
    * Function which returns a React element to display as an accessory view.
    *
    * Accepts a `placement` parameter which can be one of the following values:
@@ -461,31 +479,13 @@ export type BottomTabNavigationOptions = {
   /**
    * Size of the tab's icon.
    *
-   * With `native` implementation, the tab bar reserves the same space for
-   * every tab based on the largest icon, and smaller icons are centered in it.
+   * With `native` implementation, the largest size is used for the icon area in all tabs.
+   * Icons smaller than the largest size are centered in this area.
    *
    * Supported on all platforms with `custom` implementation.
    * Only supported on Android with `native` implementation.
    */
   tabBarIconSize?: number | undefined;
-
-  /**
-   * Width of the tab's active indicator.
-   *
-   * Only supported with `native` implementation.
-   *
-   * @platform android
-   */
-  tabBarActiveIndicatorWidth?: number | undefined;
-
-  /**
-   * Height of the tab's active indicator.
-   *
-   * Only supported with `native` implementation.
-   *
-   * @platform android
-   */
-  tabBarActiveIndicatorHeight?: number | undefined;
 
   /**
    * Style object for the tab label.

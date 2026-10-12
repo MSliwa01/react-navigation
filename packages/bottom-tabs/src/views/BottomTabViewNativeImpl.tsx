@@ -580,11 +580,13 @@ export function BottomTabViewNative({
               tabBarItemIconColor: activeTintColor,
             };
 
+          const iconSize = tabBarIconSize ?? ICON_SIZE!;
+
           const getIcon = (selected: boolean) => {
             if (typeof tabBarIcon === 'function') {
               const result = tabBarIcon({
                 focused: selected,
-                size: ICON_SIZE!,
+                size: iconSize,
                 color: selected ? activeTintColor : inactiveTintColor,
               });
 
@@ -597,14 +599,14 @@ export function BottomTabViewNative({
                 typeof result === 'object' &&
                 'type' in result
               ) {
-                return getPlatformIcon(result, direction);
+                return getPlatformIcon(result, direction, iconSize);
               } else {
                 throw new Error(
                   `The 'tabBarIcon' function must return an icon object (got ${typeof result}).`
                 );
               }
             } else if (tabBarIcon != null) {
-              return getPlatformIcon(tabBarIcon, direction);
+              return getPlatformIcon(tabBarIcon, direction, iconSize);
             }
 
             return undefined;
@@ -765,7 +767,11 @@ function AnimatedScreenContent({
   );
 }
 
-function getPlatformIcon(icon: Icon, direction: LocaleDirection): PlatformIcon {
+function getPlatformIcon(
+  icon: Icon,
+  direction: LocaleDirection,
+  size: number
+): PlatformIcon {
   switch (icon.type) {
     case 'sfSymbol':
       return {
@@ -783,7 +789,7 @@ function getPlatformIcon(icon: Icon, direction: LocaleDirection): PlatformIcon {
             variant: icon.variant,
             weight: icon.weight,
             fill: icon.fill,
-            size: ICON_SIZE,
+            size,
             direction,
           }),
         },
